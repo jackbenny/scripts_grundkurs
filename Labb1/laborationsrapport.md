@@ -9,3 +9,12 @@
 	```bash
 	ls a*.c
 	```
+
+3.	Om du skriver ls -la >> /test/test, vad händer då?
+
+	Den skriver alla ut en fillista till filet /test/test. Körs raden igen kommer den skriva fylla på med listan efter den förra listan i samma fil.
+
+4.	Lista alla filer i hela filsystemet till en fil som heter ls-laR.gz, den ska alltså också vara komprimerad, eventuella felmeddelanden ska hamna i ls-laR-errors.txt.
+	```bash
+	ls -laR | gzip > ls-laR.gz 2> ls-laR-errors.txt		
+	```
