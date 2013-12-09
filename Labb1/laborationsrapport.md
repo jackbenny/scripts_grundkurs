@@ -6,5 +6,6 @@
 	*	Listar alla filer som innehåller fyra tecken, en punkt, och sedan ett "c" eller ett "o".
 
 2.	Om du vill lista alla filer som börjar på a och slutar på .c, vilken wildcard använder du då?
-
+	```bash
 	ls a*.c
+	```
