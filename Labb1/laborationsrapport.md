@@ -24,3 +24,13 @@
 	```bash
 	ls -laR | gzip > ls-laR.gz 2> ls-laR-errors.txt		
 	```
+
+5.	Vad är miljövariabeln PATH för något? Hur lägger du till katalogen ~/bin till PATH?
+	Hur gör du så att denna ändring sker vid varje inloggning?
+
+	PATH håller reda på binärer i systemet. För att lägga till ~/bin i min egen PATH redigerar jag min ~/.profile och lägger till följande innehåll
+	```bash
+	if [ -d "$HOME/bin" ] ; then
+    		PATH="$HOME/bin:$PATH"
+	fi
+	```
