@@ -1,5 +1,10 @@
 # Laborationsrapport 1 #
 
+## Syfte ##
+
+Grunderna i Bash. Att efter genomförd laboration få praktisk erfarenhet av att skräddarsy. Bashmiljön. Förstå hur Wildcards och Braces fungerar i praktiken. Kunna navigera i bashmiljön och förstå vad Bash’s olika konfigurationsfiler gör.
+Notera att laborationens uppgifter både finns inbakade i texten och under frågesektionen.
+
 ## Test och experiment ##
 
 Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett litet script med awk som tog uptime kommandot och filtrerade ut så endast uptimen visades på skärmen. Scriptet finns på [uptime.sh](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb1/uptime.sh)
@@ -51,4 +56,8 @@ Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett 
 
 8.	Vad är ett "null kommando" och varför finns det?
 
-	Ett null-kommando är ett semikolon där ett kommando skulle ha stått, man kan använda semikolon för att separera kommandon på samma rad. T.ex. "pwd; ls; who;"
+	Kolon (":") är ett null kommando och returnerar alltid 0 från $? (värdet från senaste körda kommandot). D.v.s det är ett kommando som faktiskt körs men inte gör något, men returnerar 0 i exit status. T.ex. kan man använda detta istället för ett faktiskt kommando om man måste ha ett sant returvärde från något. Exempelvis i en while-stats i script. Eller bara rakt upp och ner vid prompten för att testa ett script man gjort som är beroende av ett sant returvärde.
+
+## Reflektion ##
+
+Det var en lärorik första laboration med tanke på att där var en hel del nytt att lära sig, bland annat null-kommandot och pushd, popd, dirs. Det är aldrig fel att gå tillbaks till grunderna för att få en stabilare grund att stå på när det gäller scripting.
