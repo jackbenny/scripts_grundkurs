@@ -16,13 +16,13 @@ Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett 
 1.	Vad kommer att listas vid följande kommando?
 	*	ls -la [a]*[!e]
 
-	Listar alla filer som börjar på "a" och innehåller ett fritt antal tecken och som inte slutar på ett "e".
+	Listar alla filer som börjar på __a__ och innehåller ett fritt antal tecken och som inte slutar på ett __e__.
 	*	ls -la *[f-i]?	
 
-	Listar alla filer som börjar på ett fritt antal tecken och sedan innehåller "f" till "i" och sedan bara ett enda tecken. T.ex. filen aaagl kommer visas, men inte aaaglll.
+	Listar alla filer som börjar på ett fritt antal tecken och sedan innehåller __f__ till __i__ och sedan bara ett enda tecken. T.ex. filen __aagl__ kommer visas, men inte __aaaglll__.
 	*	ls -la ????.[co]
 
-	Listar alla filer som innehåller fyra tecken, en punkt, och sedan ett "c" eller ett "o".
+	Listar alla filer som innehåller fyra tecken, en punkt, och sedan ett __c__ eller ett __o__.
 
 2.	Om du vill lista alla filer som börjar på a och slutar på .c, vilken wildcard använder du då?
 	```bash
@@ -48,7 +48,7 @@ Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett 
 	fi
 	```
 
-6.	Vad händer om du skriver top i .bash_logout?
+6.	Vad händer om du skriver top i .bash\_logout?
 
 	Top körs vid utloggning, dock bara om man är i ett login-shell, d.v.s. om man loggar in via en riktig terminal, typ CTRL+ALT+F2.
 
