@@ -1,4 +1,10 @@
-# Frågor och uppgifter #
+# Laborationsrapport 1 #
+
+## Test och experiment ##
+
+Tillsammans med @daemonicus666 gjorde vi ett litet script med awk som tog uptime kommandot och filtrerade ut så endast uptimen visades på skärmen. Scriptet finns på [uptime.sh](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb1/uptime.sh)
+
+## Frågor och uppgifter ##
 
 1.	Vad kommer att listas vid följande kommando?
 	*	ls -la [a]*[!e]
@@ -44,4 +50,5 @@
 	Pushd används för att lägga in kataloger i dir-stacken samt byta till katalogen man anger. Popd används för att byta tillbaks till katalogerna från dir-stacken, en i taget. När man använder popd försvinner katalogen en efter en från dir-stacken. Dirs kommandot används för att lista katalogerna i dir-stacken. 
 
 8.	Vad är ett "null kommando" och varför finns det?
+
 	Ett null-kommando är ett semikolon där ett kommando skulle ha stått, man kan använda semikolon för att separera kommandon på samma rad. T.ex. "pwd; ls; who;"
