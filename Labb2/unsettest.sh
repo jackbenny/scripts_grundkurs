@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Jack-Benny Persson
+# LX13
+
 declare DIST=Hej
 echo "Utan unset: $DIST"
 unset DIST

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Jack-Benny Persson
+# LX13
+
 #Definiera Name
 declare Namn
 

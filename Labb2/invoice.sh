@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Jack-Benny Persson
+# LX13
+
 Datum=`date +%F`
 Moms=30
 Net=500

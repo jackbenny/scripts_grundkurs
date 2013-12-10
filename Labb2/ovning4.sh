@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Övning 4, laboration 2
+# Jack-Benny Persson
+# LX13
+
 # Skapa en funktion för att skriva ut färgen
 Skriv()
 {
