@@ -14,10 +14,10 @@ Under tiden laborationen läses igenom testas en del olika nya saker, framföral
 
 Resterande övningar finns här på GitHub
 
-	* [Övning 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning1.sh)
-	* [Övning 2](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning2.sh)
-	* [Övning 3](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning3.sh)
-	* [Övning 4](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning4.sh)
+* [Övning 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning1.sh)
+* [Övning 2](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning2.sh)
+* [Övning 3](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning3.sh)
+* [Övning 4](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb2/ovning4.sh)
 
 ## Reflektion ##
 
