@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Skapa en funktion för att skriva ut färgen
+Skriv()
+{
+	printf "Din favoritfärg är $Color\n"
+}
+
+# Läs in färgen från användarens input
 read -t 3 -p "Ange din favoritfärg: " Color
 
 # Kolla om vi fick en input från användaren
@@ -12,12 +19,6 @@ fi
 # Sätt röd om Color är tom
 Color=${Color:="röd"}
 
-# Skapa en funktion för att skriva ut färgen
-Skriv()
-{
-	printf "Din favoritfärg är $Color\n"
-}
-
 # Om vi inte anger en färg kommer svaret hamna
 # på samma rad som frågan, vilket inte är snyggt,
 # därför lägger vi till en egen radbrytning
@@ -28,4 +29,5 @@ else
 	Skriv
 fi
 
+# Avsluta med status 0
 exit 0
