@@ -5,11 +5,13 @@
 Grunderna i Bash. Att efter genomförd laboration få praktisk erfarenhet av att skräddarsy. Bashmiljön. Förstå hur Wildcards och Braces fungerar i praktiken. Kunna navigera i bashmiljön och förstå vad Bash’s olika konfigurationsfiler gör.
 Notera att laborationens uppgifter både finns inbakade i texten och under frågesektionen.
 
-## Test och experiment ##
+## Tillvägagångsssätt ##
+
+### Test och experiment ###
 
 Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett litet script med awk som tog uptime kommandot och filtrerade ut så endast uptimen visades på skärmen. Scriptet finns på [uptime.sh](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb1/uptime.sh)
 
-## Frågor och uppgifter ##
+### Frågor och uppgifter ###
 
 1.	Vad kommer att listas vid följande kommando?
 	*	ls -la [a]*[!e]
