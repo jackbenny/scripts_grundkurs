@@ -2,7 +2,7 @@
 
 ## Test och experiment ##
 
-Tillsammans med @daemonicus666 gjorde vi ett litet script med awk som tog uptime kommandot och filtrerade ut så endast uptimen visades på skärmen. Scriptet finns på [uptime.sh](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb1/uptime.sh)
+Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett litet script med awk som tog uptime kommandot och filtrerade ut så endast uptimen visades på skärmen. Scriptet finns på [uptime.sh](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb1/uptime.sh)
 
 ## Frågor och uppgifter ##
 
