@@ -8,7 +8,7 @@ Förstå och kunna hantera villkor med test. Både gällande strängar, filer oc
 
 Declare och test-värden testas lite i början av labben. Exempelvis:
 
-	```bash
+	````bash
 	jake@elektra:~$ declare -x StringTest="Hej"
 	jake@elektra:~$ test -z $StringTest; echo $?
 	1
@@ -19,7 +19,7 @@ Declare och test-värden testas lite i början av labben. Exempelvis:
 	jake@elektra:~$ unset StringTest
 	jake@elektra:~$ test -z $StringTest; echo $?
 	0
-	```
+	````
 
 Detta är ett enkelt sätt att testa olika test-scenarion utan att behöva skapa ett helt nytt script varje gång man vill prova på något bara.
 
