@@ -14,13 +14,13 @@ Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett 
 ### Frågor och uppgifter ###
 
 1. Vad kommer att listas vid följande kommando?
-	*	_ls -la [a]*[!e]_
+	*	`ls -la [a]*[!e]`
 
 	Listar alla filer som börjar på __a__ och innehåller ett fritt antal tecken och som inte slutar på ett __e__.
-	*	_ls -la *[f-i]?_	
+	*	`ls -la *[f-i]?`	
 
 	Listar alla filer som börjar på ett fritt antal tecken och sedan innehåller __f__ till __i__ och sedan bara ett enda tecken. T.ex. filen __aagl__ kommer visas, men inte __aaaglll__.
-	*	_ls -la ????.[co]_
+	*	`ls -la ????.[co]`
 
 	Listar alla filer som innehåller fyra tecken, en punkt, och sedan ett __c__ eller ett __o__.
 
@@ -29,7 +29,7 @@ Tillsammans med [daemonicus666](https://github.com/daemonicus666) gjorde vi ett 
 	ls a*.c
 	```
 
-3. Om du skriver _ls -la >> /test/test_, vad händer då?
+3. Om du skriver `ls -la >> /test/test`, vad händer då?
 
 	Den skriver alla ut en fillista till filet /test/test. Körs raden igen kommer den skriva fylla på med listan efter den förra listan i samma fil.
 
@@ -48,13 +48,13 @@ Hur gör du så att denna ändring sker vid varje inloggning?
 	fi
 	```
 
-6. Vad händer om du skriver _top_ i .bash\_logout?
+6. Vad händer om du skriver `top` i .bash\_logout?
 
 	Top körs vid utloggning, dock bara om man är i ett login-shell, d.v.s. om man loggar in via en riktig terminal, typ CTRL+ALT+F2.
 
-7. Hur använder du mekanismen _pushd_, _popd_ och _dirs_?
+7. Hur använder du mekanismen `pushd`, `popd` och `dirs`?
 
-	_Pushd_ används för att lägga in kataloger i dir-stacken samt byta till katalogen man anger. Popd används för att byta tillbaks till katalogerna från dir-stacken, en i taget. När man använder _popd_ försvinner katalogen en efter en från dir-stacken. _Dirs_ kommandot används för att lista katalogerna i dir-stacken. 
+	Pushd används för att lägga in kataloger i dir-stacken samt byta till katalogen man anger. Popd används för att byta tillbaks till katalogerna från dir-stacken, en i taget. När man använder popd försvinner katalogen en efter en från dir-stacken. Dirs kommandot används för att lista katalogerna i dir-stacken. 
 
 8. Vad är ett "null kommando" och varför finns det?
 
