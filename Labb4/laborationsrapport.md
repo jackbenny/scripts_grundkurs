@@ -6,24 +6,23 @@ Förstå hur man använder kommandot let för att utföra grundläggande räknin
 ## Tillvägagångssätt ##
 
 ### Matematik i skalet ###
-
-	```bash
-	let Summa="10+2"
-	echo $Summa
-	12
+```bash
+let Summa="10+2"
+echo $Summa
+12
+```
 
 Ovanståede kod är enkel och fungerar bra, det som blir problem är precis som texten säger, när man delar något som inte går jämnt ut. Man får då resten som modulus enligt nedan
-
-	```bash
-	let Summa="10/3"
-	echo $Summa # Svaret blir 3, eftersom 3*3=9
-	```
+```bash
+let Summa="10/3"
+echo $Summa # Svaret blir 3, eftersom 3*3=9
+```
 
 Vi får fram resten genom modulus
-
-	```bash
-	let Summa="10%3"
-	echo $Summa # Svaret blir 1, efter 3*3=9+1=10, alltså resten är 1.
+```bash
+let Summa="10%3"
+echo $Summa # Svaret blir 1, efter 3*3=9+1=10, alltså resten är 1.
+```
 
 Istället för `let` kan man instället skriva `Summa=$((4+4)); echo $Summa` och vi får svaret 8.
 
