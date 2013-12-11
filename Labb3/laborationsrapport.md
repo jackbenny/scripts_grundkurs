@@ -18,6 +18,9 @@ Declare och test-värden testas lite i början av labben. Exempelvis:
 	jake@elektra:~$ unset StringTest
 	jake@elektra:~$ test -z $StringTest; echo $?
 	0
+	jake@elektra:~$ test "hej" = "hej"
+	jake@elektra:~$ echo $?
+	0
 
 Detta är ett enkelt sätt att testa olika test-scenarion utan att behöva skapa ett helt nytt script varje gång man vill prova på något bara.
 
@@ -32,3 +35,4 @@ Samtliga övningsuppgifter finns här på GitHub
 
 ## Reflektion ##
 
+Som vanligt lärorikt att gå tillbaks till grunderna, så mycket man missat när man kodat tidigare. Det är lätt man bara använder det man kan och struntar i allt annat, trots att koden hade blivit bättre om man hade tagit sig tiden att läsa på lite.
