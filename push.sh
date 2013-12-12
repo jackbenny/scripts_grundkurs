@@ -34,7 +34,7 @@ if [ $1 -ne 1 ]; then
 fi
 
 if [ ! -x $Git ]; then
-	echo "Can't execut $Git"
+	echo "Can't execute $Git"
 	exit 2
 fi
 
