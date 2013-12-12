@@ -4,8 +4,10 @@
 # LX13
 # Övning 2, labb 4
 
-# Define some variables
-Rate="6.3"
+# Get current exchange rate
+Rate=`curl -s http://www.valutakurser.nu/usd.html | \
+grep "<td>Forex</td>" | awk '{print $10}' | \
+egrep [0-9] | cut -b15-18`
 
 # Run it
 printf "Do you want to convert from SEK or USD? "
