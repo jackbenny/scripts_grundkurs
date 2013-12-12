@@ -11,6 +11,7 @@ Rate="6.3"
 printf "Do you want to convert from SEK or USD? "
 read Exchange
 
+# Check our input
 if [ "$Exchange" != "USD" ] && [ $Exchange != "SEK" ]; then
 	echo "Enter USD or SEK"
 	exit 2
@@ -19,6 +20,7 @@ fi
 printf "Enter amount: "
 read Amount
 
+# Case-statement in case we want other current in the future
 case "$Exchange" in
 	USD)
 	  Answer=`echo "scale=2;$Amount*$Rate" | bc`
@@ -30,3 +32,5 @@ case "$Exchange" in
 	  printf "$Amount SEK is $Answer USD\n"
 	;;
 esac
+
+exit 0
