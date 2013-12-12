@@ -42,3 +42,4 @@ echo $Var # "Hej alla sura" skrivs ut
 ```
 
 Att kunna söka efter variabler är också trevligt, typ `echo ${!U}` som kommer att matcha t.ex. UID och USER.
+
