@@ -26,6 +26,30 @@ echo $Summa # Svaret blir 1, efter 3*3=9+1=10, alltså resten är 1.
 
 Istället för `let` kan man instället skriva `Summa=$((4+4)); echo $Summa` och vi får svaret 8.
 
+### Parameter Substitution / Expansion ##
+Skillnaden mellan `echo ${Param:=Hej}` och `echo ${Param=Hej}` är att första exemplet,
+d.v.s. där vi har kolon (:) så kommer "Hej" att skrivas om $Param är tom och inte satt (unset). Om vi skriver utan kolon å andra sidan så testas bara om $Param är tom.
+
+```bash
+Me=""
+echo ${Me=Yay} # Skriver inte ut något
+echo ${Me:=Yay} # Skriver ut Yay samt säter $Mee till Yay
+```
+
+Det finns även andra operatorer förutom lika med (=). Nedan listas dessa med exempel
+```bash
+Me=""
+echo ${Me-Yay} # Skriver inte ut något (eftersom Me är satt)
+echo ${Me:-Yay} # Skriver ut Yay (men sätter INTE Me till Yay som med "=")
+
+Test10="Hej"
+echo ${Test10:+Då} # Skriver ut Då, men lämnar $Test10 till "Hej"
+unset Test10
+echo ${Test10:+Då} # Skriver inte något då $Test10 är unset
+
+echo ${Test20:?Missing} # Skriver ut "Missing" till standard error (STDERR)
+```
+
 ### Övningar ###
 * [Övning 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning1.sh)
 * [Övning 2](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning2.sh)
