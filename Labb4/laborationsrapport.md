@@ -47,7 +47,7 @@ echo ${Test10:+Då} # Skriver ut Då, men lämnar $Test10 till "Hej"
 unset Test10
 echo ${Test10:+Då} # Skriver inte något då $Test10 är unset
 
-echo ${Test20:?Missing} # Skriver ut "Missing" till standard error (STDERR)
+echo ${Test20:?Missing} # Skriver ut "Missing" till STDERR eftersom $Test20 är unset
 ```
 
 ### Övningar ###
