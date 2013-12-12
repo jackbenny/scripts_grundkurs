@@ -28,7 +28,7 @@ Repo=$HOME/testgit
 Msg="$1"
 
 # Sanity checks
-if [ $1 -ne 1 ]; then
+if [ $# -ne 1 ]; then
 	echo 'Usage: $0 "commit message"'
 	exit 2
 fi
@@ -62,7 +62,7 @@ if [ "$ShallWe" = "y" ]; then
 	echo "Adding, commiting & pushing"
 	git add -A
 	git commit -m "$Msg"
-	echo "Fake push"
+	git push
 elif [ "$ShallWe" = "n" ]; then
 	echo "Aborting"
 	exit 1
