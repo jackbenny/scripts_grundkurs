@@ -29,6 +29,7 @@ Istället för `let` kan man instället skriva `Summa=$((4+4)); echo $Summa` och
 ### Övningar ###
 * [Övning 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning1.sh)
 * [Övning 2](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning2.sh)
+* [Övning 3, script 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning3_script1.sh)
 
 ## Reflektion ##
 En lösning på problemet med att Bash bara räknar med int är att istället använda `bc` (Bench Calculator) istället för `let` i Bash.
