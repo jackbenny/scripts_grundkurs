@@ -28,12 +28,13 @@ Istället för `let` kan man instället skriva `Summa=$((4+4)); echo $Summa` och
 
 ### Övningar ###
 * [Övning 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning1.sh)
+* [Övning 2](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb4/ovning2.sh)
 
 ## Reflektion ##
 En lösning på problemet med att Bash bara räknar med int är att istället använda `bc` (Bench Calculator) istället för `let` i Bash.
 Observera dock här att `bc` inte heller räknar mer än int (heltal) som standard. T.ex. så blir `echo "10/3" | bc` också 3. Tricket här att är att ställa in __scale__ variablen till `bc`. T.ex. så blir `echo "scale=3;10/3" | bc` helt korrekt 3.33.
 
-En annan cool sak som stod i laborationen var det om Variable Substution. Att kunna tilldela en variabel ett specifikt värde om den är tom, t.ex `Variabel=""; echo ${Variabel:=test}.
+En annan cool sak som stod i laborationen var det om Variable Substution. Att kunna tilldela en variabel ett specifikt värde om den är tom, t.ex `Variabel=""; echo ${Variabel:=test}`.
 Att kunna byta ut strängar i variabler är också en häftig funktion och väldigt "sed lik". T.ex. nedanstående kodstycke
 ```bash
 Var="Hej alla glada"
