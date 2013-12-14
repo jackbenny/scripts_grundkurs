@@ -9,6 +9,7 @@
 File="$1"
 Old="$2"
 New="$3"
+Script=`basename $0`
 
 # Sanity checks
 if [ $# -ne 3 ]; then
@@ -17,7 +18,7 @@ if [ $# -ne 3 ]; then
 			cat $1     # just print it
 		fi
 		else
-			echo "Usage $0 <filename> <old_word> <new_word>"
+			echo "Usage $Script <filename> <old_word> <new_word>"
 			exit 2 # If it dosen't, exit and print usage
 		fi
 fi
