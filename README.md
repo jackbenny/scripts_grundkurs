@@ -1,3 +1,3 @@
-# Mina script till kursen #
+# Scripts for the scripting course #
 
-Här sparar jag mina övningar m.m.
+Here I'll save my misc scripts for the Bash scripting course
