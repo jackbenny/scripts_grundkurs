@@ -9,6 +9,7 @@
 G=30
 VG=48
 Form=form.txt
+Outfile="NO"
 
 # Function to print the students grade and points
 print_grade()
@@ -30,7 +31,7 @@ print_grade()
 short_help()
 {
 	printf "Usage: `basename $0` -f <filename>" 
-	printf " -o <filename> -G <int> -VG <int>\n"
+	printf " -o <filename> -G <int> -V <int>\n"
 }
 
 long_help()
@@ -40,37 +41,33 @@ long_help()
 	-f Optional filename to read the form data from.
 	-o Optional output file for the points and grade.
 	-G Number of minimum points for a grade G (Default is 30).
-	-VG Number of minimum points for a grade VG (Default is 48).
+	-V Number of minimum points for a grade VG (Default is 48).
 	EOF
 }
 
-# Pass command line arguments
-while [ -n "$1" ]; do
-	case "$1" in
-	-f) Arg="$2"
-	    if [ ! -r $Arg ]; then
-		echo "Can't read $Arg" > /dev/stderr
+# Parse command line arguments
+while getopts f:o:G:V:h Opt; do
+	case "$Opt" in
+	f)  if [ ! -r $OPTARG ]; then
+		echo "Can't read $OPTARG" > /dev/stderr
 		short_help
 		exit 2
 	    fi
-	    Form="$Arg"
-	    shift 2
+	    Form="$OPTARG"
 	    ;;
-	-o) Outfile="$2"
-	    if [ ! -w `dirname $Outfile` ]; then
-		echo "You can't write to `dirname $Outfile`"\
+	o) 
+	    if [ ! -w `dirname $OPTARG` ]; then
+		echo "You can't write to `dirname $OPTARG`"\
 		> /dev/stderr
 		exit 2
 	    fi
-	    shift 2
+	    Outfile="$OPTARG"
 	    ;;
-	-G) G=$2
-	    shift 2
+	G) G=$OPTARG
 	    ;;
-	-VG) VG=$2
-	     shift 2
+	V) VG=$OPTARG
 	     ;;
-	-h) long_help
+	h) long_help
 	    exit 0
 	    ;;
 	*) short_help
@@ -114,7 +111,7 @@ for i in ${Points[*]}; do
 done
 
 # Print the total points and grade
-if [ -n $Outfile ]; then
+if [ "$Outfile" != "NO" ]; then
 	print_grade > $Outfile
 else
 	print_grade
