@@ -1,0 +1,2 @@
+[ ] Check if backup.tar already exist (we don't want to overwrite it)
+[ ] 
