@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#Jack-Benny Persson
+# Jack-Benny Persson
 # LX13
 # Övning 5, labb 5
 # Backup-script
@@ -8,14 +8,35 @@
 # Set some variabels
 BackupTo="$HOME/backups/"
 declare Verbose
+File="False"
 Tar="/bin/tar"
 
-# Help screens
-short_usage()
+# Question for overwriting existing file
+overwrite()
 {
-	echo "Usage: `basename $0` -b <dir> -f <filename.tar> -o <dir> -v -h"
+	select Overwrite in "Yes" "No"; do
+	   case $Overwrite in
+	     "Yes") printf "Overwriting previous file, continuing...\n"
+		    break
+	            ;;
+	     "No") printf "Not overwriting, halting script\n"
+	           exit 0
+	           ;;
+	     *)	printf "Please answer 1 (yes) or 2 (no)\n"
+		;;
+	   esac
+	done
 }
 
+
+# Print short help
+short_usage()
+{
+	printf "Usage: `basename $0` -b <dir> -f <filename.tar> -o "
+	printf "<dir> -v -h\n"
+}
+
+# Print long help
 long_usage()
 {
 	short_usage
@@ -28,7 +49,7 @@ long_usage()
 	EOF
 }
 
-# Parse arguments and options
+# Parse command line arguments and options
 while getopts b:f:o:vh Opt; do
 	case "$Opt" in
 	b)  BackupThis=$OPTARG
@@ -40,25 +61,45 @@ while getopts b:f:o:vh Opt; do
 	v)  Verbose=v
 	    ;;
 	h)  long_usage
+	    exit 1
 	    ;;
 	*)  short_usage
+	    exit 2
 	    ;;
 	esac
 done
 
 # Sanity checks
 if [ ! -w $BackupTo ] || [ ! -d $BackupTo ]; then
-	echo "Can't write to $BackupTo or $BackupTo doesn't exist" > /dev/stderr
+	printf "Can't write to $BackupTo or $BackupTo doesn't exist\n" \
+		> /dev/stderr
 	exit 2
 fi
 
 if [ ! -r $BackupThis ]; then
-	echo "Can't read $BackupThis"
+	printf "Can't read ${BackupThis}\n" > /dev/stderr
 	exit 2
 fi
 
-# Main (do the actual backup)
+# Check if the backup file already exists
+if [ "$File" != "False" ]; then
+	if [ -f ${BackupTo}/${File} ]; then
+		printf "${BackupTo}/${File} already exist, overwrite?\n"
+		overwrite
+	fi
+else
+	if [ -f ${BackupTo}/`basename $BackupThis`.tar ]; then
+		printf "${BackupTo}/`basename $BackupThis`.tar already exist, "
+		printf "overwrite?\n"
+		overwrite
+	fi
+fi
 
-$Tar cf$Verbose ${BackupTo}/`basename $BackupThis`.tar $BackupThis
+# Main (do the actual backup)
+if [ "$File" != "False" ]; then
+	$Tar cf$Verbose ${BackupTo}/${File} $BackupThis
+else
+	$Tar cf$Verbose ${BackupTo}/`basename $BackupThis`.tar $BackupThis
+fi
 
 exit 0
