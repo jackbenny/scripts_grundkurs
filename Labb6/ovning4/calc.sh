@@ -68,7 +68,7 @@ case "$Calc" in
 		echo $?
 		;;
 	*)
-		echo "Please use on the symlink add.sh/sub.sh/div.sh/tim.sh"
+		echo "Please use one the symlink add.sh/sub.sh/div.sh/tim.sh"
 		exit 2
 		;;
 esac
