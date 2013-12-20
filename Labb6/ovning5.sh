@@ -9,10 +9,11 @@
 Df="/bin/df"
 Awk="/usr/bin/awk"
 Sed="/bin/sed"
+Logger="/usr/bin/logger"
 Warn=80 # Warn a how many percent full?
 
 # Sanity checks
-for bin in $Df $Awk $Sed; do
+for bin in $Df $Awk $Sed $Logger; do
 	if [ ! -x $bin ]; then
 		echo "Can't execute $bin"
 		exit 2
@@ -20,13 +21,13 @@ for bin in $Df $Awk $Sed; do
 done
 
 # Get the disks
-for dev in `df -h | awk '/\/dev\/sd*/ { print $1 }'`; do
+for dev in `$Df -h | $Awk '/\/dev\/sd*/ { print $1 }'`; do
 	Disk[$Nr]=$dev
 	((Nr++))
 done
 
 # Get the usage percentage
-for percent in `df -h | awk '/\/dev\/sd*/ { print $5 }' | sed 's/%//'`; do
+for percent in `$Df -h | $Awk '/\/dev\/sd*/ { print $5 }' | $Sed 's/%//'`; do
 	Use[$UseNr]=$percent
 	((UseNr++))
 done
@@ -37,7 +38,7 @@ DiskDev=0
 for i in ${Use[@]}; do
 	if [ $i -gt $Warn ]; then
 		echo "Disk ${Disk[$DiskDev]} is ${Use[$DiskDev]}% full"
-		logger "Disk ${Disk[$DiskDev]} is ${Use[$DiskDev]}% full"
+		$Logger "Disk ${Disk[$DiskDev]} is ${Use[$DiskDev]}% full"
 		((DiskDev++))
 	fi
 done
