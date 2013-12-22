@@ -5,7 +5,7 @@
 # Just testing arrays
 
 Content=($(ls))
-echo Content[@]}
+echo ${Content[@]}
 
 exit 0
 
