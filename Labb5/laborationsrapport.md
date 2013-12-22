@@ -12,9 +12,7 @@ betygsättar-skriptet.
 * [Övning 1](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb5/ovning1.sh)
 * [Övning 2](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb5/ovning2.sh)
 * [Övning 3](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb5/ovning3.sh)
-* [Övning
-* 4](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb5/ovning4.sh
-)
+* [Övning 4](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb5/ovning4.sh)
 * [Övning 5](https://github.com/jackbenny/scripts_grundkurs/blob/master/Labb5/ovning5.sh)
 * [Övning 6](http://github.com/jackbenny/scripts_grundkurs/tree/master/Labb5/serverbackup)
 
