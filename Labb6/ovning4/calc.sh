@@ -15,7 +15,10 @@ if [ $# -ne 2 ]; then
 	exit 2
 fi
 
-if ! [ $Nr1 -eq $Nr2 &> /dev/null ]; then
+if ! [ $Nr1 -eq $Nr1 &> /dev/null ]; then
+	echo "`basename $0` only takes integers" 
+	exit 2
+elif ! [ $Nr2 -eq $Nr2 &> /dev/null ]; then
 	echo "`basename $0` only takes integers"
 	exit 2
 fi
