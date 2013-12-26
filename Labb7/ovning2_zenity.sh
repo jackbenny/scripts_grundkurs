@@ -24,7 +24,7 @@ if [ ! -w /tmp/ ]; then
 	exit 1
 fi
 
-for bin in $Awk $Zenity $Printf $Rm; do
+for Bin in $Awk $Zenity $Printf $Rm; do
 	if [ ! -x $Bin ]; then
 		echo "Can't execute $Bin"
 		exit 1

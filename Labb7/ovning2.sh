@@ -18,7 +18,7 @@ if [ ! -w `dirname $File` ]; then
 	exit 1
 fi
 
-for bin in $Awk $Dialog $Printf; do
+for Bin in $Awk $Dialog $Printf; do
 	if [ ! -x $Bin ]; then
 		echo "Can't execute $Bin"
 		exit 1
