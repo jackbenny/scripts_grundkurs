@@ -21,7 +21,7 @@ ask()
 		2> /tmp/createuser
 	if [ $? -eq 255 ]; then
 		echo "Aborting, user hit ESC"
-		exit 2
+		exit 1
 	fi
 	Input=`$Cat /tmp/createuser`
 
@@ -31,13 +31,13 @@ ask()
 # Sanity checks
 if [ $EUID -ne 0 ]; then
 	echo "You need to run this script as root"
-	exit 2
+	exit 1
 fi
 
 for bin in $Chpasswd $Useradd $Dialog $Grep $Cat $Rm; do
 	if [ ! -x $bin ]; then
 		echo "Can't execute $bin"
-		exit 2
+		exit 1
 	fi
 done
 
@@ -56,7 +56,7 @@ $Dialog --backtitle "Create new user"\
 	2> /tmp/createuser
 	if [ $? -eq 255 ]; then
 		echo "Aborting, user hit ESC"
-		exit 2
+		exit 1
 	fi
 Input=`$Cat /tmp/createuser`
 UserShell=$Input

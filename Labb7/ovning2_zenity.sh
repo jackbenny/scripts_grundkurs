@@ -16,18 +16,18 @@ Rm="/bin/rm"
 # Sanity checks
 if [ ! -w `dirname $File` ]; then
 	echo "Can't write to `dirname $File`"
-	exit 2
+	exit 1
 fi
 
 if [ ! -w /tmp/ ]; then
 	echo "Can't write to /tmp/"
-	exit 2
+	exit 1
 fi
 
 for bin in $Awk $Zenity $Printf $Rm; do
 	if [ ! -x $Bin ]; then
 		echo "Can't execute $Bin"
-		exit 2
+		exit 1
 	fi
 done
 

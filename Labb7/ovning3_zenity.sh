@@ -25,7 +25,7 @@ ask()
 		> /tmp/createuser
 	if [ $? -eq 1 ]; then
 		echo "Aborting, user hit cancel..."
-		exit 2
+		exit 1
 	fi
 	Input=`$Cat /tmp/createuser`
 }
@@ -42,13 +42,13 @@ extract_data()
 # Sanity checks
 if [ $EUID -ne 0 ]; then
 	echo "You need to run this script as root"
-	exit 2
+	exit 1
 fi
 
 for bin in $Chpasswd $Useradd $Zenity $Grep $Cat $Rm; do
 	if [ ! -x $bin ]; then
 		echo "Can't execute $bin"
-		exit 2
+		exit 1
 	fi
 done
 
@@ -67,7 +67,7 @@ $Rm /tmp/createuser
 $Useradd -m -s $UserShell -c "$Comment" $Username
 if [ $? -ne 0 ]; then
 	echo "Couldn't create new user $Username, aborting"
-	exit 2
+	exit 1
 fi
 echo "${Username}:${Password}" | $Chpasswd
 

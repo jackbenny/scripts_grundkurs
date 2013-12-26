@@ -15,13 +15,13 @@ Printf="/usr/bin/printf"
 # Sanity checks
 if [ ! -w `dirname $File` ]; then
 	echo "Can't write to `dirname $File`"
-	exit 2
+	exit 1
 fi
 
 for bin in $Awk $Dialog $Printf; do
 	if [ ! -x $Bin ]; then
 		echo "Can't execute $Bin"
-		exit 2
+		exit 1
 	fi
 done
 

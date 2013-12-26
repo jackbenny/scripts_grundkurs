@@ -11,7 +11,7 @@ Whereis="/usr/bin/whereis"
 # Santiy checks
 if [ ! -x $Dialog ]; then
 	echo "Can't excute $Dialog"
-	exit 2
+	exit 1
 fi
 
 # Main
@@ -25,7 +25,7 @@ BinPath=`$Whereis $Browser | awk '{ print $2 }'`
 echo $BinPath | grep / &> /dev/null
 if [ $? -ne 0 ]; then
 	$Dialog --msgbox "It seems that you don't have $Browser installed" 10 60
-	exit 2
+	exit 1
 fi
 
 $Dialog --infobox "Starting up $Browser for you" 10 60

@@ -11,7 +11,7 @@ Whereis="/usr/bin/whereis"
 # Santiy checks
 if [ ! -x $Zenity ]; then
 	echo "Can't excute $Zenity"
-	exit 2
+	exit 1
 fi
 
 # Main
@@ -25,7 +25,7 @@ BinPath=`$Whereis $Browser | awk '{ print $2 }'`
 echo $BinPath | grep / &> /dev/null
 if [ $? -ne 0 ]; then
 	$Zenity --info --text="It seems you don't have $Browser installed"
-	exit 2
+	exit 1
 fi
 
 $BinPath &
