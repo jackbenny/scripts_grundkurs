@@ -12,6 +12,7 @@ Useradd="/usr/sbin/useradd"
 Dialog="/usr/bin/dialog"
 Grep="/bin/grep"
 Cat="/bin/cat"
+Rm="/bin/rm"
 
 # Functions
 ask()
@@ -35,7 +36,7 @@ if [ $EUID -ne 0 ]; then
 	exit 2
 fi
 
-for bin in $Chpasswd $Useradd $Dialog $Grep $Cat; do
+for bin in $Chpasswd $Useradd $Dialog $Grep $Cat $Rm; do
 	if [ ! -x $bin ]; then
 		echo "Can't execute $bin"
 		exit 2
@@ -60,6 +61,9 @@ UserShell=$Input
 
 ask "Enter a password for the new user"
 Password=$Input
+
+# Remove the temp file (it contains the password of latest created user)
+$Rm /tmp/createuser
 
 # Create the user and set the password
 $Useradd -m -s $UserShell $Username
