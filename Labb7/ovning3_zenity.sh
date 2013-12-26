@@ -20,17 +20,22 @@ ask()
 	$Zenity --title "Create new user" --forms \
 		--add-entry="Username" \
 		--add-entry="Full path of shell" \
-		--add-entry="Optional comment (Full name etc)" \
+		--add-entry="Comment (Full name etc)" \
 		--add-password="Password" \
 		> /tmp/createuser
-	Input=`$Cat /tmp/createuser`
 	if [ $? -eq 1 ]; then
 		echo "Aborting, user hit cancel..."
 		exit 2
-	elif [ $? -ne 0 ]; then
-		echo "Aborting, something went wrong"
-		exit 2
 	fi
+	Input=`$Cat /tmp/createuser`
+}
+
+extract_data()
+{
+	Username=`echo $Input | awk -F "|" '{ print $1 }'`
+	UserShell=`echo $Input | awk -F "|" '{ print $2 }'`
+	Comment=`echo $Input | awk -F "|" '{ print $3 }'`
+	Password=`echo $Input | awk -F "|" '{ print $4 }'`
 }
 
 
@@ -48,29 +53,23 @@ for bin in $Chpasswd $Useradd $Zenity $Grep $Cat $Rm; do
 done
 
 # Main
-ask "Enter username of the new user"
-Username=$Input
 
-# Get a list of all avaliable shells on the system
-Shell=`$Cat /etc/shells | $Grep /bin`
-ShellList=`printf "$Shell" | sed 's/ / shell /g' | sed 's/$/ shell/'`
+# Display the question form
+ask
 
-HowMany=`echo $Shell | wc -w` # How many shells are avaliable?
+# Extract the data from the temp file
+extract_data
 
-$Zenity --backtitle "Create new user"\
-	--menu "Choose a shell for your new user" 14 60 $HowMany $ShellList\
-	2> /tmp/createuser
-Input=`$Cat /tmp/createuser`
-UserShell=$Input
-
-ask "Enter a password for the new user"
-Password=$Input
-
-# Remove the temp file (it contains the password of latest created user)
+# Remove temp file for security reasons
 $Rm /tmp/createuser
 
 # Create the user and set the password
-$Useradd -m -s $UserShell $Username
+$Useradd -m -s $UserShell -c "$Comment" $Username
+if [ $? -ne 0 ]; then
+	echo "Couldn't create new user $Username, aborting"
+	exit 2
+fi
 echo "${Username}:${Password}" | $Chpasswd
 
 exit 0
+
