@@ -1,0 +1,3 @@
+Everything here will be redirected to a file called all_normal
+Even this line
+And this line too
