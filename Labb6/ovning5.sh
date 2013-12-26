@@ -5,15 +5,18 @@
 # Övning 5, labb 6
 # Monitor disk usage and send a warning if it exceeds N%
 
-# Set some variables
+# Binaries
 Df="/bin/df"
 Awk="/usr/bin/awk"
 Sed="/bin/sed"
 Logger="/usr/bin/logger"
-Warn=80 # Warn a how many percent full?
+Mail="/usr/bin/mail"
+
+# Set some variables
+Warn=10 # Warn a how many percent full?
 
 # Sanity checks
-for bin in $Df $Awk $Sed $Logger; do
+for bin in $Df $Awk $Sed $Logger $Mail; do
 	if [ ! -x $bin ]; then
 		echo "Can't execute $bin"
 		exit 2
@@ -39,6 +42,8 @@ for i in ${Use[@]}; do
 	if [ $i -gt $Warn ]; then
 		echo "Disk ${Disk[$DiskDev]} is ${Use[$DiskDev]}% full"
 		$Logger "Disk ${Disk[$DiskDev]} is ${Use[$DiskDev]}% full"
+		echo "Disk ${Disk[$DiskDev]} is ${Use[$DiskDev]}% full" \
+		| $Mail root -s "Disk usage warning"
 		((DiskDev++))
 	fi
 done
