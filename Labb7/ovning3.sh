@@ -19,14 +19,12 @@ ask()
 {
 	$Dialog --backtitle "Create new user" --inputbox "$1" 10 60\
 		2> /tmp/createuser
-	Input=`$Cat /tmp/createuser`
-	if [ $? -ne 0 ]; then
-		echo "Aborting, something went wrong..."
-		exit 2
-	elif [ $? -eq 255 ]; then
+	if [ $? -eq 255 ]; then
 		echo "Aborting, user hit ESC"
 		exit 2
 	fi
+	Input=`$Cat /tmp/createuser`
+
 }
 
 
@@ -56,6 +54,10 @@ HowMany=`echo $Shell | wc -w` # How many shells are avaliable?
 $Dialog --backtitle "Create new user"\
 	--menu "Choose a shell for your new user" 14 60 $HowMany $ShellList\
 	2> /tmp/createuser
+	if [ $? -eq 255 ]; then
+		echo "Aborting, user hit ESC"
+		exit 2
+	fi
 Input=`$Cat /tmp/createuser`
 UserShell=$Input
 
