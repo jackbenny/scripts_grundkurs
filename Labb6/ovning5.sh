@@ -19,7 +19,7 @@ Warn=10 # Warn a how many percent full?
 for bin in $Df $Awk $Sed $Logger $Mail; do
 	if [ ! -x $bin ]; then
 		echo "Can't execute $bin"
-		exit 2
+		exit 1
 	fi
 done
 

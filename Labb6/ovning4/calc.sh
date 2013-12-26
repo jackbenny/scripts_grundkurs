@@ -12,15 +12,15 @@ Nr2=$2
 # Sanity check
 if [ $# -ne 2 ]; then
 	echo "`basename $0` requires two arguments"
-	exit 2
+	exit 1
 fi
 
 if ! [ $Nr1 -eq $Nr1 &> /dev/null ]; then
 	echo "`basename $0` only takes integers" 
-	exit 2
+	exit 1
 elif ! [ $Nr2 -eq $Nr2 &> /dev/null ]; then
 	echo "`basename $0` only takes integers"
-	exit 2
+	exit 1
 fi
 
 # Define our functions
@@ -72,7 +72,7 @@ case "$Calc" in
 		;;
 	*)
 		echo "Please use one the symlink add.sh/sub.sh/div.sh/tim.sh"
-		exit 2
+		exit 1
 		;;
 esac
 

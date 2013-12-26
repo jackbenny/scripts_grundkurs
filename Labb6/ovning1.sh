@@ -12,7 +12,7 @@ Arg2=$2
 # Sanity checks
 if [ $# -ne 2 ]; then
 	printf "`basename $0` requires two arguments\n"
-	exit 2
+	exit 1
 fi
 
 printf "Argument 1 is ${Arg1}\n"

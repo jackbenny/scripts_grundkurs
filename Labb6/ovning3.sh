@@ -12,12 +12,12 @@ Iterate=0
 # Sanity checks
 if [ $# -ne 1 ]; then
 	echo "`basename $0` requires one argument"
-	exit 2
+	exit 1
 fi
 
 if ! [ $Nr -eq $Nr &> /dev/null ]; then
 	echo "Use only integers"
-	exit 2
+	exit 1
 fi
 
 # Define our functions
