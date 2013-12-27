@@ -13,17 +13,19 @@ Dialog="/usr/bin/dialog"
 Grep="/bin/grep"
 Cat="/bin/cat"
 Rm="/bin/rm"
+Temp=`mktemp -t createuser.XXXX` # This is safer than just creating the file
+				 # manualy, since it will be chmod 600 now
 
 # Functions
 ask()
 {
 	$Dialog --backtitle "Create new user" --inputbox "$1" 10 60\
-		2> /tmp/createuser
+		2> $Temp
 	if [ $? -eq 255 ]; then
 		echo "Aborting, user hit ESC"
 		exit 1
 	fi
-	Input=`$Cat /tmp/createuser`
+	Input=`$Cat $Temp`
 
 }
 
@@ -53,19 +55,19 @@ HowMany=`echo $Shell | wc -w` # How many shells are avaliable?
 
 $Dialog --backtitle "Create new user"\
 	--menu "Choose a shell for your new user" 14 60 $HowMany $ShellList\
-	2> /tmp/createuser
+	2> $Temp
 	if [ $? -eq 255 ]; then
 		echo "Aborting, user hit ESC"
 		exit 1
 	fi
-Input=`$Cat /tmp/createuser`
+Input=`$Cat $Temp` 
 UserShell=$Input
 
 ask "Enter a password for the new user"
 Password=$Input
 
 # Remove the temp file (it contains the password of latest created user)
-$Rm /tmp/createuser
+$Rm $Temp
 
 # Create the user and set the password
 $Useradd -m -s $UserShell $Username

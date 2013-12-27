@@ -13,6 +13,7 @@ Zenity="/usr/bin/zenity"
 Grep="/bin/grep"
 Cat="/bin/cat"
 Rm="/bin/rm"
+Temp=`mktemp -t createuser.XXXXXX`
 
 # Functions
 ask()
@@ -22,12 +23,12 @@ ask()
 		--add-entry="Full path of shell" \
 		--add-entry="Comment (Full name etc)" \
 		--add-password="Password" \
-		> /tmp/createuser
+		> $Temp
 	if [ $? -eq 1 ]; then
 		echo "Aborting, user hit cancel..."
 		exit 1
 	fi
-	Input=`$Cat /tmp/createuser`
+	Input=`$Cat $Temp`
 }
 
 extract_data()
@@ -61,7 +62,7 @@ ask
 extract_data
 
 # Remove temp file for security reasons
-$Rm /tmp/createuser
+$Rm $Temp
 
 # Create the user and set the password
 $Useradd -m -s $UserShell -c "$Comment" $Username
