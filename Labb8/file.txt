@@ -8,3 +8,4 @@ I matematiken kan vi räkna ut radius
 Eller var det någon annan rad?
 Det här är iaf den sista raden i en
 text om rader.
+En rad där vissa ord upprepar sig, som t.ex. ord

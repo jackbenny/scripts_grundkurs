@@ -81,9 +81,44 @@ ls -l | grep -v total | awk '{ print $9"\t är "$5" bytes stor" }'
 
 # Mer test från laborationsbeskrivningen
 ls -l /etc/| awk 'BEGIN { print "Found:\n" } /^.*\.conf$/ { print $9 } END { print "\nDone" }'
+
+# Byt ut andra förekomsten av ordet ord mot bilar
+cat file.txt | sed 's/ord/bilar/2'
+
+# Byt ut Den mot Och på andra raden
+cat file.txt | sed '2s/Den/Och/'
+
+# Byt ut order rader mot line, men bara på den rad som börjar på ordet Många
+cat file.txt | sed '/^Många/s/rader/lines/'
+
+# Ta bort tredje och fjärde raden
+cat file.txt | sed '2,4d'
+
+# Ta bort rader från rad två till sista raden
+cat file.txt | sed '2,$d'
+
+# Lägg till (append) "Hej på dig" efter den tredje raden
+cat file.txt | sed '3a\Hej på dig'
+
+# Lägg till (inster) "Hej på dig" före den tredje raden
+cat file.txt | sed '3i\Hej på dig'
+
+# Byt ut den trejde raden mot en helt ny rad (change)
+cat file.txt | sed '3c\Den nya raden'
+
+# Byt ut hela texten på raden som börjar med Långa (change)
+cat file.txt | sed '/^Långa/c\Den nya raden'
+
+# Byt ut 1, 2 och 3 mot 7,8 och 9 i den ordning de träffas på
+cat numbers.txt | sed 'y/123/789/'
+
+# Skriv endast ut rad 2 till 5
+cat file.txt | sed -n '2,5p'
+
+# Skriv ut endast rad 2 och till 5 till filen newfile.txt
+cat file.txt | sed -n '2,5w newfile.txt'
 ```
 Fler exempel finns i denna mappen i form av bland annat en rad awk-skript.
-
 
 ## Reflektion ##
 
