@@ -1,4 +1,6 @@
 # Laborationsrapport 5 #
+Jack-Benny Persson <br>
+LX13
 
 ## Syfte ##
 Ha koll på funktioner i bash, samt hur man passar ett argument till ett skript 

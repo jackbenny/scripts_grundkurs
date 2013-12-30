@@ -1,4 +1,6 @@
 # Laborationsrapport 5 #
+Jack-Benny Persson <br>
+LX13
 
 ## Syfte ##
 Förstå och kunna använda loopar.

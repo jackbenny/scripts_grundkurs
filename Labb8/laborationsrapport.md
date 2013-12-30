@@ -121,4 +121,9 @@ cat file.txt | sed -n '2,5w newfile.txt'
 Fler exempel finns i denna mappen i form av bland annat en rad awk-skript.
 
 ## Reflektion ##
-
+Det som var intressant och tog ett tag att klura ut var skillnaden på 
+dubbelapostrof och enkelapostrof när man använder sed. Använder man
+enkelapostrofer som används i princip alla exempel och böcker i ämnet så kan man
+inte använda värdet av variabler från Bash i sed. T.ex. `sed 's/$Ord/nytt ord/'`
+fungerar inte. Däremot med dubbelapostrofer fungerar det alldeles utmärkt, 
+`sed "s/$Ord/nytt ord/"`.
