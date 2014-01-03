@@ -8,3 +8,6 @@ So for this exercise I've written the following script(s).
 	for the hardcoded binary pathes. Useful in case this script is being run
 	a different distro which doesn't have the same pathes as Ubuntu.
 
+* [check\_smhi](https://github.com/jackbenny/check_smhi)<br>
+	A Nagios plugin to check the SMHI website for wheather alerts.
+
